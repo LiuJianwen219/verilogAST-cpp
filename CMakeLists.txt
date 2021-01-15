@@ -7,7 +7,8 @@ option(VERILOGAST_BUILD_TESTS "Build all of verilogAST's own tests." OFF)
 
 project(verilogAST)
 set(COVERAGE OFF CACHE BOOL "Coverage")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 
 if (COVERAGE)
@@ -79,3 +80,7 @@ endif()
 install(TARGETS ${LIBRARY_NAME} DESTINATION lib)
 install(FILES include/verilogAST.hpp DESTINATION include)
 install(DIRECTORY include/verilogAST DESTINATION include)
+
+##add_subdirectory(testUsing)
+add_executable(ljwTest testUsing/testUsing.cpp)
+target_link_libraries(ljwTest ${LIBRARY_NAME})

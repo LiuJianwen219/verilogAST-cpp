@@ -686,7 +686,7 @@ class Assign : public Node {
                std::unique_ptr<Slice>>
       target;
   std::unique_ptr<Expression> value;
-  std::string prefix;
+  std::string prefix; // this for what?
   std::string symbol;
 
   Assign(std::variant<std::unique_ptr<Identifier>, std::unique_ptr<Index>,
